@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="{{ site.LanguageCode }}" prefix="og: http://ogp.me/ns#">
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}" class="no-js">
   <head>
-    {{ partial "google-analytics.html" . }}
-    {{ partial "meta.html" . }}
-
-    <title>
-      {{- block "title" . -}}
-        {{ .Title }} &ndash; {{ site.Title -}}
-      {{ end -}}
-    </title>
-
-    {{ partial "favicons.html" . }}
-    {{ partial "css.html" . }}
+    {{ partial "head.html" . }}
   </head>
-  <body class="is-page has-navbar-fixed-top">
-    <main class="is-main">
-      {{ partial "navbar.html" . }}
-      {{ partial "banner.html" -}}
-      {{ block "main" . }}{{ end }}
-    </main>
-    {{ partial "footer.html" . }}
-    {{ partial "javascript.html" . }}
+  <body class="is-page has-navbar-fixed-top td-{{ .Kind }}">
+    <header>
+      {{ partial "navbar-orig.html" . }}
+    </header>
+    <div class="container-fluid td-default td-outer">
+      <main role="main" class="is-main td-main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ partial "footer-orig.html" . }}
+    </div>
+    {{ partialCached "scripts.html" . }}
   </body>
 </html>
