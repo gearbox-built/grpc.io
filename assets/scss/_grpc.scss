@@ -106,9 +106,9 @@ sections site wide to the original site's background svg.
 
 // DOCS
 
-// Extend the sidebar to the end of the screen. By default it is short by 10rem.
+// Extend the sidebar to the end of the visible page.
 .td-toc {
-  height: 100vh;
+  height: calc(100vh - 5rem);
 }
 
 // Custom in-page toc. Apply this class as a modifier on top of the Docsy-provided .td-toc
